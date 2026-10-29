@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cnabkit"
+version = "0.1.0"
+description = "Parsers for Brazilian bank files: CNAB 240, CNAB 400 and OFX statements, with typed models and Decimal money."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Maxmilian Duarte" }]
+keywords = ["cnab", "cnab240", "cnab400", "ofx", "febraban", "boleto", "bank", "brazil", "reconciliation"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Typing :: Typed",
+  "Topic :: Office/Business :: Financial :: Accounting",
+  "Natural Language :: Portuguese (Brazilian)",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/maxmilian02/cnabkit"
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6", "mypy>=1.11"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q --cov=cnabkit --cov-report=term-missing"
+testpaths = ["tests"]
